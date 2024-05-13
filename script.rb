@@ -1,12 +1,10 @@
 require 'pry-byebug'
 
 def caesar_cipher(string, shift_amount)
-    arr = string.split("")
-    arr_num = arr.map { |val| val.ord}
-    arr_new_num = arr_num.map { |val| letter?(val.chr) ? shift_letter(val, shift_amount) : val}
-    arr_new_letters = arr_new_num.map { |val| val.chr }
-    new_string = arr_new_letters.join()
-    new_string
+    arr_char_code = string.split("").map { |val| val.ord }
+    arr_char_code_shifted = arr_char_code.map { |val| letter?(val.chr) ? shift_letter(val, shift_amount) : val}
+    string_shifted = arr_char_code_shifted.map { |val| val.chr }.join()
+    string_shifted
 end
 
 def letter?(item)
